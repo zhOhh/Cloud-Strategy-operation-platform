@@ -79,10 +79,10 @@ const login = async () => {
 //定义表单校验需要的配置对象
 const rules = {
     username: [
-        { required: true, message: '请输入用户名', trigger: 'blur' }
+        { required: true, message: '请输入用户名', trigger: 'change' }
     ],
     password: [
-        { required: true, min: 6, max: 10, message: '密码需在6~10位之间', trigger: 'blur' }
+        { required: true, min: 6, max: 10, message: '密码需在6~10位之间', trigger: 'change' }
     ]
 }
 </script>
