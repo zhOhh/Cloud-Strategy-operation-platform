@@ -7,28 +7,38 @@
             <!-- 滚动组件 -->
             <el-scrollbar class="scrollbar">
                 <!-- 菜单组件 -->
-                <el-menu background-color="#ffd200" text-color="#907239">
-
-
+                <el-menu :default-active="$route.path" background-color="#ffd200" text-color="#907239"
+                    active-text-color="#372ce5">
+                    <!-- 根据路由动态生成菜单 -->
+                    <Menu :menuList="userStore.menuRoutes"></Menu>
                 </el-menu>
-
             </el-scrollbar>
         </div>
         <!-- 顶部导航 -->
         <div class="layout_tabbar">456</div>
         <!-- 内容展示区 -->
         <div class="layout_main">
-            <p style="height: 1000px; background:skyblue;">叭叭叭叭叭叭叭叭叭</p>
+            <Main></Main>
         </div>
 
     </div>
 </template>
 
 <script setup lang="ts">
+//获取路由对象
+import { useRoute } from 'vue-router'
 //引入左侧菜单Logo子组件
 import Logo from './logo/logo.vue'
 //引入菜单组件
+import Menu from './menu/index.vue'
+//右侧内容展示区域
+import Main from './main/index.vue'
+//获取用户相关的小仓库
+import useUserStore from '@/store/modules/user'
+let userStore = useUserStore()
 
+//获取路由对象
+let $route = useRoute()
 </script>
 
 <style scoped lang="scss">
@@ -45,6 +55,10 @@ import Logo from './logo/logo.vue'
         .scrollbar {
             width: 100%;
             height: calc(100vh - $base-menu-logo-height);
+
+            .el-menu {
+                border-right: none;
+            }
         }
     }
 
