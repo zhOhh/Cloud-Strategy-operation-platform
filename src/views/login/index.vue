@@ -15,7 +15,8 @@
                             placeholder="密码 Password"></el-input>
                     </el-form-item>
                     <el-form-item>
-                        <el-button :loading="loading" class="login_btn" color="#372ce5" type="warning" @click="login">登录
+                        <el-button :loading="loading" class="login_btn" color="#372ce5" type="warning" @click="login"
+                            round>登录
                             Login</el-button>
                     </el-form-item>
                 </el-form>

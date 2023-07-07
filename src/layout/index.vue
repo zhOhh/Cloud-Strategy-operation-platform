@@ -15,7 +15,10 @@
             </el-scrollbar>
         </div>
         <!-- 顶部导航 -->
-        <div class="layout_tabbar">456</div>
+        <div class="layout_tabbar">
+            <!-- layout组件的顶部导航tabbar -->
+            <Tabbar></Tabbar>
+        </div>
         <!-- 内容展示区 -->
         <div class="layout_main">
             <Main></Main>
@@ -33,6 +36,7 @@ import Logo from './logo/logo.vue'
 import Menu from './menu/index.vue'
 //右侧内容展示区域
 import Main from './main/index.vue'
+import Tabbar from './tabbar/index.vue'
 //获取用户相关的小仓库
 import useUserStore from '@/store/modules/user'
 let userStore = useUserStore()
@@ -45,7 +49,6 @@ let $route = useRoute()
 .layout_container {
     width: 100%;
     height: 100vh;
-
 
     .layout_slider {
         width: $base-menu-width;
@@ -66,7 +69,6 @@ let $route = useRoute()
         position: fixed;
         width: calc(100% - $base-menu-width);
         height: $base-tabbar-height;
-        background-color: pink;
         top: 0;
         left: $base-menu-width;
     }
