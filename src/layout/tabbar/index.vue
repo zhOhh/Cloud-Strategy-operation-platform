@@ -23,17 +23,17 @@
             <el-button size="small" icon="Refresh" circle @click="updateRefsh"></el-button>
             <el-button size="small" icon="FullScreen" circle @click="fullScreen"></el-button>
             <el-button size="small" icon="Setting" circle></el-button>
-            <img src="../../../public/logo.png" style="width:24px;height:24px;margin:0px 10px">
+            <img :src="userStore.avatar" style="width:24px;height:24px;margin:0px 10px;border-radius:50%">
             <el-dropdown>
                 <span class="el-dropdown-link">
-                    Admin
+                    {{ userStore.username }}
                     <el-icon class="el-icon--right">
                         <arrow-down />
                     </el-icon>
                 </span>
                 <template #dropdown>
                     <el-dropdown-menu>
-                        <el-dropdown-item>退出登录</el-dropdown-item>
+                        <el-dropdown-item @click="logout">退出登录</el-dropdown-item>
                     </el-dropdown-menu>
                 </template>
             </el-dropdown>
@@ -45,11 +45,15 @@
 // import { ref } from 'vue'
 // import { Expand } from '@element-plus/icons-vue';
 import useLayOutSettingStore from '@/store/modules/setting'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
+//获取用户相关的小仓库
+import useUserStore from '@/store/modules/user'
 //获取路由对象
 let $route = useRoute()
+let $router = useRouter()
 //获取layout配置相关仓库
 let layoutSettingStore = useLayOutSettingStore()
+let userStore = useUserStore()
 //点击图标的方法
 const changeIcon = () => {
     //图标进行切换
@@ -71,6 +75,11 @@ const fullScreen = () => {
         document.exitFullscreen()
     }
 
+}
+//退出登录点击回调
+const logout = () => {
+    userStore.userLogout()
+    $router.push({ path: '/login' })
 }
 </script>
 
