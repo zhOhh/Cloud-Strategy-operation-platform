@@ -14,8 +14,8 @@
 </template>
 
 <script setup lang="ts">
-//@ts-ignore
 import moment from 'moment';
+//@ts-ignore
 //点击首页按钮回到首页
 import { useRouter } from 'vue-router';
 import { ref, onMounted, onBeforeUnmount } from 'vue';

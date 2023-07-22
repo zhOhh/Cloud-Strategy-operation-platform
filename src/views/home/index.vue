@@ -14,10 +14,10 @@
 </template>
 
 <script setup lang="ts">
+import { getTime } from '@/utils/time';
 //获取仓库
 import useUserStore from '@/store/modules/user';
 let userStore = useUserStore()
-import { getTime } from '@/utils/time';
 import setting from '@/setting'
 </script>
 
